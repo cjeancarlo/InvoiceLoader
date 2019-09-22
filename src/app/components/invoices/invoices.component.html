@@ -1,0 +1,30 @@
+ 
+
+  <div class="row" *ngIf="!_invoicesService.totalScreen">
+    <div class="col">
+        <app-invoices-inline-form></app-invoices-inline-form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+        <app-invoices-grid></app-invoices-grid>
+      </div>
+    </div>
+
+    <div class="container">    
+    <div class="row">
+        <div class="col">
+         
+            <button type="button"  (click)="deleteWork()" *ngIf="_invoicesService.totalScreen"  class="btn btn-danger">Delete work</button>
+          </div>  
+      <div class="col text-right">
+          <button type="button" [disabled]="!this._invoicesService.invoicesArray"  (click)="Process()" class="btn btn-primary ">{{buttonText}}</button>
+        </div>
+        
+    </div>
+    </div>
+  <div class="row">
+      <div class="col">
+          <!-- <app-wheater></app-wheater> -->
+      </div>
+    </div>

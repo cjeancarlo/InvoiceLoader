@@ -1,0 +1,36 @@
+<div class="container">
+<div class="table-responsive-lg">
+        <table class="table">
+                <thead>
+                        <tr>
+                          <th class="text-center"   scope="col">Invoice Number</th>
+                          <th class="text-center" scope="col">Net</th>
+                          <th class="text-center" scope="col">% Tax</th>
+                          <th class="text-center" scope="col">Total</th>
+                          <th class="text-center" scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr  *ngFor="let i of _invoicesService.invoicesArray">
+                              <td class="text-center"  scope="row">{{ i.number | padZeros  }}</td>
+                              <td class="text-center">{{i.net |  customCurrency}}</td>
+                              <td class="text-center">{{i.tax |  customCurrency}}</td>
+                              <td class="text-center">{{calculateTotal(i) |  customCurrency}} </td>
+                              <td class="td-button">  <button type="button" *ngIf="!_invoicesService.totalScreen" (click)="remove(i.id)" class="btn btn-danger">Remove</button></td>
+                            </tr>
+                            <ng-container *ngIf="_invoicesService.totalScreen">
+                            <tr class="alert alert-primary"  *ngFor="let t of totalInvocies()" >
+ 
+                              <td class="text-center"  scope="row">Global</td>
+                                <td class="text-center">{{t.net |  customCurrency}}</td>
+                                <td class="text-center">{{t.tax |  customCurrency}}</td>
+                                <td class="text-center">{{calculateTotal(t) |  customCurrency}} </td>
+                                <td class="text-center"></td>
+
+                              </tr>
+                            </ng-container>
+
+                      </tbody>      
+                    </table>
+      </div>
+    </div>

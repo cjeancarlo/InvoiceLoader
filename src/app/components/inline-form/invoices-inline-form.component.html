@@ -1,0 +1,42 @@
+<div class="container">
+<form novalidate [formGroup]="Invoiceform">
+    <div class="form-row">
+      <div class="col-xs-12 col-sm-12 col-md-2">
+        <label   ><span>Number</span></label>
+        <input type="text" class="form-control" placeholder="Invoice number"  formControlName="number"
+        >
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-2">
+        <label><span>Net</span></label>
+        <input    
+        appCurrencyNumericInput="true"
+        [ThousandSeparator]="true"
+        type="text" class="form-control" placeholder="Amount of the invoice"  formControlName="net"
+        [value]="Invoiceform.get('net').value  " >
+      </div>
+    
+    <div class="col-xs-12 col-sm-12 col-md-2">
+      <label><span>Tax</span></label>
+      <select class="form-control"   formControlName="tax">
+          <option disabled selected value> Select tax % </option>
+        <option value="0">0 % </option>
+        <option value="10.5">10,5 %</option>
+        <option value="21">21 %</option>
+        <option value="27">27 %</option>
+      </select>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-2">
+      <label><span>Total</span></label>
+      <input type="text"  class="form-control" placeholder="Total" formControlName="total" 
+      >
+    </div>
+    <div  class="col-sm-2">
+      <button type="submit" (click)="addInvoice()" class="form-control button-inline btn btn-outline-success" [disabled]="!Invoiceform.valid">Add</button>
+    </div>
+    <div  class="col-sm-2">
+      <button type="button" (click)="clearInvoice()" class="form-control button-inline btn btn btn-outline-danger">Clear</button>
+    </div>
+  </div>
+  
+  </form>
+</div>
