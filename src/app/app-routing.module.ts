@@ -4,7 +4,14 @@ import { InvoicesComponent } from './components/invoices/invoices.component';
 
 
 const routes: Routes = [
-  { path: 'invoices', component: InvoicesComponent }
+  {
+    path: '', redirectTo: 'invoices', pathMatch: 'full'
+  },
+  { path: 'invoices', component: InvoicesComponent },
+  {
+    path: '**',
+    component: InvoicesComponent
+  }
 ];
 
 @NgModule({

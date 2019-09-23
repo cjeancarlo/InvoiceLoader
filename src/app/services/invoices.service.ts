@@ -16,7 +16,7 @@ export class InvoicesService {
 
   add(i: Invoice){
       i.id = this.invoicesArray ?  this.invoicesArray.length +1 : 1;
-      console.log(i)
+      i.net = this.fixNumber(''+i.net);
       this.invoicesArray.push(i)
       this.updateStorage()
     }
@@ -39,5 +39,8 @@ private updateStorage(){
 }
 
 
+fixNumber(n: string) :number {
+  return +(''+n).replace(",", "."); 
+}
 
 }

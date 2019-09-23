@@ -3,16 +3,20 @@
     <div class="form-row">
       <div class="col-xs-12 col-sm-12 col-md-2">
         <label   ><span>Number</span></label>
-        <input type="text" class="form-control" placeholder="Invoice number"  formControlName="number"
-        >
+        <input type="text" class="form-control" placeholder="Invoice number"  formControlName="number">
+        <span class="badge badge-danger" *ngIf="Invoiceform.get('number').hasError('required') && Invoiceform.get('number').touched">
+            Required
+            </span>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-2">
         <label><span>Net</span></label>
-        <input    
-        appCurrencyNumericInput="true"
-        [ThousandSeparator]="true"
-        type="text" class="form-control" placeholder="Amount of the invoice"  formControlName="net"
-        [value]="Invoiceform.get('net').value  " >
+        <input type="text" class="form-control" placeholder="Amount of the invoice"  formControlName="net">
+        <span class="badge badge-danger" *ngIf="Invoiceform.get('net').hasError('required') && Invoiceform.get('net').touched">
+        Required
+        </span>
+        <span class="badge badge-danger" *ngIf="Invoiceform.get('net').hasError('pattern') && Invoiceform.get('net').touched">
+         Invalid number
+            </span>
       </div>
     
     <div class="col-xs-12 col-sm-12 col-md-2">
@@ -24,6 +28,9 @@
         <option value="21">21 %</option>
         <option value="27">27 %</option>
       </select>
+      <span class="badge badge-danger" *ngIf="Invoiceform.get('tax').hasError('required') && Invoiceform.get('tax').touched">
+          Required
+          </span>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-2">
       <label><span>Total</span></label>

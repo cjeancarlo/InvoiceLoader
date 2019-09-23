@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PadZerosPipe } from './pipes/pad-zeros.pipe';
 import { WheaterComponent } from './components/wheater/wheater.component';
 import { CustomCurrencyPipe } from './pipes/custom-currency.pipe';
-import { appCurrencyNumericInput } from './directives/currency-numeric-input.directive';
 
 @NgModule({
   declarations: [
@@ -21,11 +21,10 @@ import { appCurrencyNumericInput } from './directives/currency-numeric-input.dir
     InvoicesComponent,
     PadZerosPipe,
     WheaterComponent,
-    CustomCurrencyPipe,
-    appCurrencyNumericInput
-  ],
+    CustomCurrencyPipe  ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
     HttpClientJsonpModule,
