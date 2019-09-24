@@ -1,6 +1,6 @@
-<div class="container">
-<div class="table-responsive-lg">
-        <table class="table">
+<div class="app-container">
+<div class="table-responsive" style="max-width: 95%;padding:10px">
+        <table class="table" >
                 <thead>
                         <tr>
                           <th class="text-center"   scope="col">Invoice Number</th>
@@ -11,14 +11,14 @@
                         </tr>
                       </thead>
                       <tbody>
-                          <tr   [@simpleFadeAnimation]="in" *ngFor="let i of _invoicesService.invoicesArray">
+                          <tr   [@simpleFadeAnimation]="in" *ngFor="let i of IService.invoicesArray">
                               <td class="text-center"  scope="row">{{ i.number | padZeros  }}</td>
                               <td class="text-center">{{i.net |  customCurrency}}</td>
                               <td class="text-center">{{i.tax |  customCurrency}}</td>
                               <td class="text-center">{{calculateTotal(i) |  customCurrency}} </td>
-                              <td class="td-button">  <button type="button" *ngIf="!_invoicesService.totalScreen" (click)="remove(i.id)" class="btn btn-danger">Remove</button></td>
+                              <td class="td-button">  <button type="button" *ngIf="!IService.totalScreen" (click)="remove(i.id)" class="btn btn-danger">Remove</button></td>
                             </tr>
-                            <ng-container *ngIf="_invoicesService.totalScreen">
+                            <ng-container *ngIf="IService.totalScreen">
                             <tr class="alert alert-primary"  *ngFor="let t of totalInvocies()" >
  
                               <td class="text-center"  scope="row">Global</td>

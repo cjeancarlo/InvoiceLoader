@@ -8,21 +8,18 @@ import { WheaterService } from 'src/app/services/wheater.service';
 })
 export class WheaterComponent implements OnInit {
 
-  
-  constructor(private  _wheaterService :WheaterService ) { 
 
-   
-  }
+  constructor(private wService: WheaterService) { }
 
   ngOnInit() {
 
-    if(navigator.geolocation) {
+    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-          this._wheaterService.getWeather(position.coords);
+        this.wService.getWeather(position.coords);
       });
-  } else {
-      console.error("The browser does not support geolocation...");
-  }
+    } else {
+      console.error('The browser does not support geolocation...');
+    }
   }
 
 }

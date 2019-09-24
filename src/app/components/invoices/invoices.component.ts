@@ -8,24 +8,20 @@ import { InvoicesService } from 'src/app/services/invoices.service';
 })
 export class InvoicesComponent implements OnInit {
 
-  constructor(private _invoicesService: InvoicesService) { }
+  constructor(private IService: InvoicesService) { }
 
+  buttonText = 'Process and Continue';
 
-  buttonText ="Process and Continue" 
-  ngOnInit() {
+  ngOnInit() { }
+
+  deleteWork() {
+    this.IService.deleteWork();
   }
 
-  deleteWork(){
-    this._invoicesService.deleteWork();
+  Process() {
+    this.buttonText = !this.IService.totalScreen ? 'Back' : 'Process and Continue';
+    this.IService.totalScreen = !this.IService.totalScreen;
 
   }
-  Process(){
-      this.buttonText = !this._invoicesService.totalScreen ? "Back" : "Process and Continue" ; 
-      this._invoicesService.totalScreen = !this._invoicesService.totalScreen;
-
-      
-  }
-
-  
 
 }

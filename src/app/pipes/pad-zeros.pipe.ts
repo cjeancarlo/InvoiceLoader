@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PadZerosPipe implements PipeTransform {
 
   transform(pad: number, ...args: any[]): string {
-    return ('00000000'+pad).slice(-8);;
+    return ('00000000' + pad).slice(-8);
 
   }
 

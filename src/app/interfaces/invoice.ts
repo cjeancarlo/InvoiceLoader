@@ -5,5 +5,3 @@ export interface Invoice {
     tax: number;
     total?: number;
 }
-
-

@@ -2,3 +2,41 @@
     margin-top: 33px;
 }
 
+.mobile{
+    width: inherit;
+}
+
+@media  (max-width: 780px) {
+    .form-control {
+        width: auto;
+        display: inline-block;
+      }
+
+      .row {
+        margin-right: 0px;
+         margin-left: 0px;
+      }
+      .col-sm-2 {
+        max-width: 100%;
+        flex: 0 0 95%;
+    }
+    
+    .col-md-2 {
+      max-width: 100%;
+      flex: 0 0 95%;
+  }
+  
+       
+      select.form-control, input.form-control   {
+        width: 70%;
+      }
+
+      .button-inline {
+                width: 100% !important;
+      }
+      
+      .mobile{
+          width: 25%;
+      }
+
+}

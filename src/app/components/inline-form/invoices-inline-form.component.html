@@ -1,15 +1,15 @@
-<div class="container">
+<div class="app-contanier">
 <form novalidate [formGroup]="Invoiceform">
     <div class="form-row">
       <div class="col-xs-12 col-sm-12 col-md-2">
-        <label   ><span>Number</span></label>
+        <label class="mobile"><span>Number</span></label>
         <input type="text" class="form-control" placeholder="Invoice number"  formControlName="number">
         <span class="badge badge-danger" *ngIf="Invoiceform.get('number').hasError('required') && Invoiceform.get('number').touched">
             Required
             </span>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-2">
-        <label><span>Net</span></label>
+        <label class="mobile"><span>Net</span></label>
         <input type="text" class="form-control" placeholder="Amount of the invoice"  formControlName="net">
         <span class="badge badge-danger" *ngIf="Invoiceform.get('net').hasError('required') && Invoiceform.get('net').touched">
         Required
@@ -20,7 +20,7 @@
       </div>
     
     <div class="col-xs-12 col-sm-12 col-md-2">
-      <label><span>Tax</span></label>
+      <label class="mobile"><span>Tax</span></label>
       <select class="form-control"   formControlName="tax">
           <option disabled selected value> Select tax % </option>
         <option value="0">0 % </option>
@@ -33,7 +33,7 @@
           </span>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-2">
-      <label><span>Total</span></label>
+      <label class="mobile"><span>Total</span></label>
       <input type="text"  class="form-control" placeholder="Total" formControlName="total" 
       >
     </div>

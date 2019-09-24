@@ -1,6 +1,6 @@
  
 
-  <div class="row" *ngIf="!_invoicesService.totalScreen">
+  <div class="row" *ngIf="!IService.totalScreen">
     <div class="col">
         <app-invoices-inline-form></app-invoices-inline-form>
     </div>
@@ -11,14 +11,14 @@
       </div>
     </div>
 
-    <div class="container">    
+    <div class="app-contanier">    
     <div class="row">
         <div class="col">
          
-            <button type="button"  (click)="deleteWork()" *ngIf="_invoicesService.totalScreen"  class="btn btn-danger">Delete work</button>
+            <button type="button"  (click)="deleteWork()" *ngIf="IService.totalScreen"  class="btn btn-danger">Delete work</button>
           </div>  
       <div class="col text-right">
-          <button type="button" [disabled]="!this._invoicesService.invoicesArray"  (click)="Process()" class="btn btn-primary ">{{buttonText}}</button>
+          <button type="button" [disabled]="!this.IService.invoicesArray"  (click)="Process()" class="btn btn-primary ">{{buttonText}}</button>
         </div>
         
     </div>

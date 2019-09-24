@@ -16,41 +16,36 @@ Invoiceform: FormGroup;
 
 total: number;
 
-constructor( private _invoicesService: InvoicesService ) { }
+constructor( private IService: InvoicesService ) { }
 
   ngOnInit() {
-    this.Invoiceform = this.initForm() 
+    this.Invoiceform = this.initForm();
 
     this.Invoiceform.valueChanges.subscribe( (val: Invoice) => {
       if (val.net && val.tax && !isNaN(val.net)) {
-        val.net= this._invoicesService.fixNumber(''+val.net)
-       
-       
-    this.Invoiceform.get('total').setValue(val.net * (1 + val.tax / 100), {emitEvent: false} ) 
+          val .net = this.IService.fixNumber('' + val.net);
+
+          this.Invoiceform.get('total').setValue(val.net * (1 + val.tax / 100), {emitEvent: false});
       }
   });
   }
 
-  initForm():FormGroup{
-
-    const numnberPattern ="^[0-9]+([,][0-9]+)?$" 
-
+  initForm(): FormGroup {
     return  new FormGroup({
       number: new FormControl('', [Validators.required, Validators.maxLength(10)]),
       net: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]+([,][0-9]+)?$/), Validators.maxLength(20)]),
       tax: new FormControl('', Validators.required),
-      total: new FormControl({value:'', disabled:true})
+      total: new FormControl({value: '', disabled: true})
     });
   }
-  
-  addInvoice(){
-  
-      this._invoicesService.add(this.Invoiceform.value)
-      this.clearInvoice()
+
+  addInvoice(): void {
+      this.IService.add(this.Invoiceform.value);
+      this.clearInvoice();
     }
 
-  clearInvoice(){
+  clearInvoice() {
       this.Invoiceform.reset();
   }
-  
+
 }
